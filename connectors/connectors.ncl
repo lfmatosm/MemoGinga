@@ -248,6 +248,21 @@
 				</compoundAction>				
 			</causalConnector>
 
+			<causalConnector id="onEndAttributionIfEqualsToVarStopNStartN">
+				<connectorParam name="var" />
+				<compoundCondition operator="and">
+					<simpleCondition role="onEndAttribution" />
+					<assessmentStatement comparator="eq">
+						<attributeAssessment role="equals" eventType="attribution" attributeType="nodeProperty" />
+						<valueAssessment value="$var" />
+					</assessmentStatement>
+				</compoundCondition>
+				<compoundAction>
+					<simpleAction role="stop" max="unbounded" qualifier="par" />
+					<simpleAction role="start" max="unbounded" qualifier="par" />	
+				</compoundAction>				
+			</causalConnector>
+
 			<causalConnector id="onEndAttributionIfEqualsToVarAbortStart">
 				<connectorParam name="var" />
 				<compoundCondition operator="and">

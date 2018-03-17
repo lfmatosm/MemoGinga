@@ -161,13 +161,10 @@ function handler(evt)
 		cont = cont + 1
 		print("LUA - Contagem = " .. cont)
 		posta_evento('ncl', 'attribution', 'counter', cont)
-		--if nivel == 1 then posta_evento('ncl', 'attribution', 'valor_sorteado', imgs[ATUAL]) end
-		if (nivel == 1) or (nivel == 2) or (nivel == 3) then
-			for i=1,nivel do
-				posta_evento('ncl', 'attribution', 'figSorteada'..i, imgs[i])
-			end
-			posta_evento('ncl', 'attribution', 'figSorteada'..nivel+1, imgs[ATUAL])
+		for i=1,nivel do
+			posta_evento('ncl', 'attribution', 'figSorteada'..i, imgs[i])
 		end
+		posta_evento('ncl', 'attribution', 'figSorteada'..nivel+1, imgs[ATUAL])
 		print("LUA - Acertos = " .. acertos)
 	end
 	--Se o evento tem como nome 'fim_de_jogo', mostra o numero de acertos do jogador na partida:
