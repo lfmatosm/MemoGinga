@@ -12,7 +12,6 @@ local nivel = 1
 
 local imgs = {-1, -1, -1, -1, -1}; local ATUAL = 5;
 
-
 --Posta um evento NCLua a partir dos parametros passados.
 function posta_evento(classeEvento, tipoEvento, nomeEvento, valorEvento)
 	local novoEvt = {
@@ -55,37 +54,22 @@ end
 function atualiza_acertos(evt, nivelJogo, vetorImagens)
 	local tecla = evt.value
 	--Repare que o dado 'evt.value' do NCLua eh uma string. Portanto 'tecla' tambem eh uma string e a comparacao deve ser como tal.
-	if nivelJogo == 1 then
-		if tecla == "1" then 
-			if (vetorImagens[1] == vetorImagens[ATUAL]) then
+	if tecla == "1" then
+		for i=1,nivelJogo do
+			if (vetorImagens[i] == vetorImagens[ATUAL]) then
 				acertos = acertos+1
-			end
-		elseif tecla == "0" then
-		 	if (vetorImagens[1] ~= vetorImagens[ATUAL]) then
-				acertos = acertos+1
+				return
 			end
 		end
-	elseif nivelJogo == 2 then
-		if tecla == "1" then 
-			if (vetorImagens[1] == vetorImagens[ATUAL]) or (vetorImagens[2] == vetorImagens[ATUAL]) then
+	elseif tecla == "0" then
+		for i=1,nivelJogo do
+			if (vetorImagens[i] == vetorImagens[ATUAL]) then return end
+			if i == nivelJogo then
 				acertos = acertos+1
-			end
-		elseif tecla == "0" then
-		 	if (vetorImagens[1] ~= vetorImagens[ATUAL]) and (vetorImagens[2] ~= vetorImagens[ATUAL]) then
-				acertos = acertos+1
+				return
 			end
 		end
-	else 
-		if tecla == "1" then 
-			if (vetorImagens[1] == vetorImagens[ATUAL]) or (vetorImagens[2] == vetorImagens[ATUAL]) or (vetorImagens[3] == vetorImagens[ATUAL]) then
-				acertos = acertos+1
-			end
-		elseif tecla == "0" then
-		 	if (vetorImagens[1] ~= vetorImagens[ATUAL]) and (vetorImagens[2] ~= vetorImagens[ATUAL]) and (vetorImagens[3] ~= vetorImagens[ATUAL]) then
-				acertos = acertos+1
-			end
-		end
-	end	
+	end
 end
 
 --Mostra o numero de acertos e o tempo de jogo do jogador ao fim de cada partida.
@@ -105,6 +89,8 @@ function mostra_acertos_e_tempo(tabelaTempo)
 	--canvas:drawText(width-200, height-230, msg_tempo)
 	canvas:drawText(width-350, height-100, msg_tempo)
 	canvas:flush()
+	local str = "Porcentagem de acertos: "..msg_acertos.."\t"..msg_tempo.."\n___________________________________________\n"
+	return str
 end
 
 --Mostra o cronometro da tela de jogo inicial, tela que exibe uma primeira imagem a ser comparada com a seguinte.
@@ -120,7 +106,7 @@ end
 
 --Preenche o trecho do canvas deste NCLua a partir da posicao (x = 200, y = 250) com uma cor escura, 
 --possibilitando redesenhos/reescritas nesta area sem sobreposicao de conteudo visivel.
---APRESENTA PROBLEMAS: sei lá por que razão, às vezes a imagem inicial não é exibida. Tenho quase
+--APRESENTA PROBLEMAS: às vezes a imagem inicial não é exibida. Tenho quase
 --ceterza de que esse problema tem a ver com essa função aqui.
 function limpa_canvas()
 	canvas:attrColor('black')
@@ -141,6 +127,14 @@ function atualiza_tempo_decorrido(tempoInicio)
 		min = minutos;
 		seg = segundos;
 	}
+end
+
+function salva_pontuacao(pontuacaoETempoJogo, nivelJogo, arquivoDeLog)
+	local arq = io.open(arquivoDeLog, "a")
+	arq:write("Nivel: "..nivelJogo.."\n")
+	arq:write(pontuacaoETempoJogo)
+	arq:flush()
+	arq:close()
 end
 
 --Funcao tratadora de eventos.
@@ -171,7 +165,8 @@ function handler(evt)
 	if evt.name == 'fim_de_jogo' then
 		print("\nLUA - evento de exibicao de pontos/tempo de jogo disparado")
 		local tempo_total = atualiza_tempo_decorrido(inicio_jogo)
-		mostra_acertos_e_tempo(tempo_total)
+		local pontuacao_e_tempo = mostra_acertos_e_tempo(tempo_total)
+		salva_pontuacao(pontuacao_e_tempo, nivel, "LOG.txt")
 	end
 end
 
