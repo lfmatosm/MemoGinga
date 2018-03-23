@@ -75,12 +75,10 @@ end
 --Mostra o numero de acertos e o tempo de jogo do jogador ao fim de cada partida.
 function mostra_acertos_e_tempo(tabelaTempo)
 	width, height = canvas:attrSize()
-
 	canvas:attrFont("vera", 100)
 	canvas:attrColor("black")
 	local acertos_porcent = 0
-	if nivel == 1 then acertos_porcent = acertos*100/(TOTAL_IMGS-2) end
-	if nivel > 1 then acertos_porcent = (acertos/(TOTAL_IMGS))*100 end
+	acertos_porcent = (acertos/(TOTAL_IMGS))*100
 	local msg_acertos = string.format("%0.1f%%", acertos_porcent)
 	canvas:drawText(30, 0, msg_acertos)
 	canvas:attrFont("vera", 40)
@@ -129,6 +127,7 @@ function atualiza_tempo_decorrido(tempoInicio)
 	}
 end
 
+--Salva a pontuação e tempo da partida ao seu fim num arquivo especificado.
 function salva_pontuacao(pontuacaoETempoJogo, nivelJogo, arquivoDeLog)
 	local arq = io.open(arquivoDeLog, "a")
 	arq:write("Nivel: "..nivelJogo.."\n")
@@ -142,7 +141,7 @@ function handler(evt)
 	print("\nLUA - 'game_script' iniciado")
 	if evt.class ~= 'ncl' then return end
 	if evt.type ~= 'attribution' then return end
-	--Para ventos de mudanca de nivel de jogo.
+	--Para eventos de mudanca de nivel de jogo.
 	if evt.name == 'nivel' then 
 		nivel = tonumber(evt.value)
 		--posta_evento('ncl', 'attribution', 'nivel', nivel)
