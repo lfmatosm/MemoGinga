@@ -94,14 +94,6 @@
 
             <region id="rgTestes" left="35%" width="30%" height="100%" zIndex="1" />
 
-            <!--Rg. botões do menu idioma-->
-            <!--<region id="rgMId" top="32.5%" left="37.5%" width="25%" height="35%" zIndex="1">
-                <region id="rgB1" height="20%" />
-                <region id="rgB2" top="20%" height="20%" />
-                <region id="rgB3" top="40%" height="20%" />
-                <region id="rgB4" top="60%" height="20%" />    
-            </region>-->
-
             <!--Suítes.-->
             <!--Lv. 1 e 2-->
             <region id="rgSuite1" top="30%" left="25%" width="50%" height="50%" zIndex="1" />
@@ -132,11 +124,6 @@
             <descriptor id="dS4" region="rgSuite4" />
             <descriptor id="dS5" region="rgSuite5" />
             <descriptor id="dS6" region="rgSuite6" />
-
-            <!--<descriptor id="dB1" region="rgB1" focusIndex="1" moveUp="4" moveDown="2" />
-            <descriptor id="dB2" region="rgB2" focusIndex="2" moveUp="1" moveDown="3" />
-            <descriptor id="dB3" region="rgB3" focusIndex="3" moveUp="2" moveDown="4" />
-            <descriptor id="dB4" region="rgB4" focusIndex="4" moveUp="3" moveDown="1" />-->
         </descriptorBase>        
         
         <connectorBase>
