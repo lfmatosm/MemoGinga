@@ -21,9 +21,9 @@ end
 function drawText(topic, message)
 	call(topic, message)
 	canvas:attrColor('black')
-	canvas:drawRect('fill', 0, 0, canvas:attrSize())
+	canvas:drawRect('fill', 0, 50, canvas:attrSize())
 	canvas:attrFont("vera", 36)
-	canvas:attrColor("white")
+	canvas:attrColor("blue")
 	canvas:drawText(0, 50, string.format("%s bpm", message))
 	canvas:flush()
 end
