@@ -1,0 +1,3 @@
+Nível 3
+
+Três figuras são apresentadas ao jogador. Em seguida, uma nova figura é mostrada. O jogador deve então dizer se a figura atual estava entre aquelas anteriormente exibidas.

@@ -1,0 +1,3 @@
+Nivel 1
+
+Una figura se muestra al jugador. A continuación, se muestra una nueva figura. El jugador debe entonces decir si la figura actual es igual en forma y color a la figura anteriormente exhibida.

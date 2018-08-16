@@ -1,0 +1,3 @@
+Level 2
+
+Two figures are exhibited to the player. Then, a new figure is shown. The player must decide if the current figure was among the previous ones.
