@@ -5,10 +5,13 @@ function call(topic, message)
 end
 
 function getHeartbeatRate()
-	i = i + 1
-	client:handler()
-	socket.sleep(1)
-	print(i)
+	while true do
+		i = i + 1
+		client:handler()
+		socket.sleep(1)
+		print(i)
+		coroutine.yield()
+	end
 end
 
 --Makes the program wait for 'n' seconds.
@@ -42,9 +45,19 @@ client:auth(user, password)
 client:connect('conn_eyre')
 client:subscribe({'oi'})
 
+coGetHeartbeatRate = coroutine.create(getHeartbeatRate)
+
+function update(cor)
+	coroutine.resume(cor)
+	if coroutine.status(cor) ~= 'dead' then event.timer(1000, update) end
+end
+
 --'Handler' function.
 function handler(evt)
-	while (true) do	getHeartbeatRate() end
+	--while (true) do	
+		--getHeartbeatRate() 
+		update(coGetHeartbeatRate)
+	--end
 end
 
 event.register(handler)
