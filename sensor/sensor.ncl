@@ -37,17 +37,9 @@
     </head>
     <body>
     	<port id="p1" component="sensorCtx" />
-    	
-        <!--<media id="sett" type="application/x-ginga-settings">
-            <property name="service.currentKeyMaster" value=""/>
-        </media>-->
-
     	<context id="sensorCtx">
     		<port id="pHeart" component="heart" />
-    		<!--<media id="settings" refer="sett" instance="instSame" />-->
-    		<media id="luaSensor" src="sensorScript.lua" descriptor="dLua">
-    			<property name="placeholder" value="0" />
-    		</media>
+    		<media id="luaSensor" src="sensorScript.lua" descriptor="dLua" />
     		<media id="heart" src="../imgs/heartbeat.gif" descriptor="dHeart" />
 
     		<link xconnector="onBeginStart">
@@ -55,19 +47,12 @@
     			<bind component="luaSensor" role="start" />
     		</link>
     		
-            <!--<link xconnector="onBeginSet">
-    			<bind component="luaSensor" role="onBegin" />
-    			<bind component="sett" interface="service.currentKeyMaster" role="set">
-    				<bindParam name="var" value="luaSensor" />
-    			</bind>
-    		</link>-->
-    		
-            <link xconnector="onEndStop">
+            	<link xconnector="onEndStop">
     			<bind component="heart" role="onEnd" />
     			<bind component="luaSensor" role="stop" />
     		</link>
     		
-            <link xconnector="onKeySelectionStop">
+            	<link xconnector="onKeySelectionStop">
     			<bind component="heart" role="onSelection">
     				<bindParam name="key" value="RED" />
     			</bind>
@@ -76,4 +61,3 @@
     	</context>
     </body>
 </ncl>
-
