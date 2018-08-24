@@ -5,7 +5,7 @@
             <importNCL alias="docMenu" documentURI="docBase/menuInicial.ncl" />
             <importNCL alias="docSelecNivel" documentURI="docBase/selecaoDeNivel.ncl" />
             <importNCL alias="docSelecIdioma" documentURI="docBase/languageMenu.ncl" />
-            <importNCL alias="docSensor" documentURI="sensor/sensor.ncl" />
+            <!--<importNCL alias="docSensor" documentURI="sensor/sensor.ncl" />-->
         </importedDocumentBase>
 
     	<ruleBase>
@@ -97,6 +97,10 @@
             <region id="rgSuite4" top="20%" left="20%" width="25%" height="25%" zIndex="1" />
             <region id="rgSuite5" top="20%" right="20%" width="25%" height="25%" zIndex="1" />
             <region id="rgSuite6" top="55%" left="37%" width="25%" height="25%" zIndex="1" />
+            
+            <region id="rgSensor" top="80%" width="50%" right="70%" zIndex="2">
+    			<region id="rgHeart" width="15%" height="40%" />
+    		</region>
         </regionBase>
         
         <descriptorBase>
@@ -110,6 +114,9 @@
             <descriptor id="dAudio" region="rgAudio" />
 
             <descriptor id="dTestes" region="rgTestes" explicitDur="2s" />
+            
+            <descriptor id="dHeart" region="rgHeart" />
+            <descriptor id="dSensor" region="rgSensor" />
 
             <!--Descs..-->
             <descriptor id="dS1" region="rgSuite1" />
@@ -198,8 +205,9 @@
             </switch>
             <media id="luaNivel1"   refer="game_script"          instance="new" />
 
-            <media id="luaSensor1"  refer="docSensor#sensorCtx"  instance="new" />
-
+            <!--<media id="luaSensor1"  refer="docSensor#sensorCtx"  instance="new" />-->
+            <media id="luaSensor1" src="sensor/sensorScript.lua" descriptor="dSensor" />
+            
             <switch id="suite1">
                 <bindRule rule="suite1_img_1" constituent="s1_img1" />
                 <bindRule rule="suite1_img_2" constituent="s1_img2" />
