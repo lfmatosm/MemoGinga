@@ -1,15 +1,11 @@
-i = 0
-
 function call(topic, message)
 	print("Topic: "..topic.."\tMsg.: "..message)
 end
 
 function getHeartbeatRate()
 	while true do
-		i = i + 1
 		client:handler()
 		socket.sleep(1)
-		print(i)
 		coroutine.yield()
 	end
 end
