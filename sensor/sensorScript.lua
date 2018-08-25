@@ -50,10 +50,7 @@ end
 
 --'Handler' function.
 function handler(evt)
-	--while (true) do	
-		--getHeartbeatRate() 
-		update(coGetHeartbeatRate)
-	--end
+	update(coGetHeartbeatRate)
 end
 
 event.register(handler)

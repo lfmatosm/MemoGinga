@@ -5,7 +5,8 @@
             <importNCL alias="docMenu" documentURI="docBase/menuInicial.ncl" />
             <importNCL alias="docSelecNivel" documentURI="docBase/selecaoDeNivel.ncl" />
             <importNCL alias="docSelecIdioma" documentURI="docBase/languageMenu.ncl" />
-            <!--<importNCL alias="docSensor" documentURI="sensor/sensor.ncl" />-->
+            
+            <importNCL alias="docSensor" documentURI="sensor/sensor.ncl" />
         </importedDocumentBase>
 
     	<ruleBase>
@@ -158,6 +159,8 @@
             <property name="fim_de_jogo" value="0" />
         </media>
 
+        <!--<media id="luaSensor" src="sensor/sensorScript.lua" descriptor="dSensor" />-->
+
         <port id="pMenu" component="menu" />
 
         <context id="menu" refer="docMenu#ctx_menuInicial" instance="instSame" />
@@ -205,8 +208,8 @@
             </switch>
             <media id="luaNivel1"   refer="game_script"          instance="new" />
 
-            <!--<media id="luaSensor1"  refer="docSensor#sensorCtx"  instance="new" />-->
-            <media id="luaSensor1" src="sensor/sensorScript.lua" descriptor="dSensor" />
+            <media id="luaSensor1"  refer="docSensor#sensorCtx"  instance="new" />
+            <!--<media id="luaSensor1" src="sensor/sensorScript.lua" descriptor="dSensor" />-->
             
             <switch id="suite1">
                 <bindRule rule="suite1_img_1" constituent="s1_img1" />

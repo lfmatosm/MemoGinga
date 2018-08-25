@@ -47,12 +47,12 @@
     			<bind component="luaSensor" role="start" />
     		</link>
     		
-            	<link xconnector="onEndStop">
+            <link xconnector="onEndStop">
     			<bind component="heart" role="onEnd" />
     			<bind component="luaSensor" role="stop" />
     		</link>
     		
-            	<link xconnector="onKeySelectionStop">
+            <link xconnector="onKeySelectionStop">
     			<bind component="heart" role="onSelection">
     				<bindParam name="key" value="RED" />
     			</bind>
