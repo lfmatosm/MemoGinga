@@ -3,6 +3,7 @@ function call(topic, message)
 end
 
 function getHeartbeatRate()
+	print("5")
 	while true do
 		client:handler()
 		socket.sleep(1)
@@ -18,11 +19,12 @@ end
 
 --Draws a text on the screen.
 function drawText(topic, message)
+	print("4")
 	call(topic, message)
-	canvas:attrColor('black')
+	canvas:attrColor(255,255,255,0)
 	canvas:drawRect('fill', 0, 50, canvas:attrSize())
 	canvas:attrFont("vera", 36)
-	canvas:attrColor("blue")
+	canvas:attrColor(95,159,159,255)
 	canvas:drawText(0, 50, string.format("%s bpm", message))
 	canvas:flush()
 end
@@ -43,13 +45,24 @@ client:subscribe({'oi'})
 
 coGetHeartbeatRate = coroutine.create(getHeartbeatRate)
 
+print("conectado show sinistrow")
+
 function update(cor)
-	coroutine.resume(cor)
-	if coroutine.status(cor) ~= 'dead' then event.timer(1000, update) end
+	print("2")
+	--coroutine.resume(cor)
+	print("5")
+	--while true do
+		client:handler()
+		socket.sleep(1)
+		--coroutine.yield()
+	--end
+	print("3")
+	event.timer(1500, update)
 end
 
 --'Handler' function.
 function handler(evt)
+	print("1")
 	update(coGetHeartbeatRate)
 end
 

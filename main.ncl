@@ -99,7 +99,7 @@
             <region id="rgSuite5" top="20%" right="20%" width="25%" height="25%" zIndex="1" />
             <region id="rgSuite6" top="55%" left="37%" width="25%" height="25%" zIndex="1" />
             
-            <region id="rgSensor" top="80%" width="50%" right="70%" zIndex="2">
+            <region id="rgSensor" top="60%" width="20%" left="75%" zIndex="2">
     			<region id="rgHeart" width="15%" height="40%" />
     		</region>
         </regionBase>
@@ -208,8 +208,8 @@
             </switch>
             <media id="luaNivel1"   refer="game_script"          instance="new" />
 
-            <media id="luaSensor1"  refer="docSensor#sensorCtx"  instance="new" />
-            <!--<media id="luaSensor1" src="sensor/sensorScript.lua" descriptor="dSensor" />-->
+            <!--<media id="luaSensor1"  refer="docSensor#sensorCtx"  instance="new" />-->
+            <media id="luaSensor1" src="sensor/sensorScript.lua" descriptor="dSensor" />
             
             <switch id="suite1">
                 <bindRule rule="suite1_img_1" constituent="s1_img1" />
