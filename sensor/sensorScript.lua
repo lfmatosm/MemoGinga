@@ -3,7 +3,6 @@ function call(topic, message)
 end
 
 function getHeartbeatRate()
-	print("5")
 	while true do
 		client:handler()
 		socket.sleep(1)
@@ -45,24 +44,18 @@ client:subscribe({'oi'})
 
 coGetHeartbeatRate = coroutine.create(getHeartbeatRate)
 
-print("conectado show sinistrow")
-
 function update(cor)
-	print("2")
 	--coroutine.resume(cor)
-	print("5")
 	--while true do
-		client:handler()
-		socket.sleep(1)
+	client:handler()
+	socket.sleep(1)
 		--coroutine.yield()
 	--end
-	print("3")
 	event.timer(1500, update)
 end
 
 --'Handler' function.
 function handler(evt)
-	print("1")
 	update(coGetHeartbeatRate)
 end
 

@@ -527,6 +527,8 @@
             </switch>
             <media id="luaNivel2-"   refer="game_script"          instance="new" />
 
+            <media id="luaSensor2" src="sensor/sensorScript.lua" descriptor="dSensor" />
+
             <link xconnector="conectores#onBeginSet">
                 <bind component="luaNivel2-" role="onBegin" />
                 <bind component="luaNivel2-" interface="nivel" role="set">
@@ -553,6 +555,8 @@
                 <bind component="fundoJ1-" role="onBegin" />
                 <bind component="suiteNv2Esq-" role="start" />
                 <bind component="suiteNv2Dir-" role="start" />
+
+                <bind component="luaSensor2" role="start" />
             </link>
 
             <link xconnector="conectores#onEndStopNItems" >
@@ -666,6 +670,8 @@
                 <bind component="suiteNv2Cen-" role="abort" />
                 <bind component="fundoJ1-" role="abort" />
                 <bind component="fundoJ2-" role="abort" />
+
+                <bind component="luaSensor2" role="abort" />
             </link>
 
             <link xconnector="conectores#onEndAbort">
@@ -678,6 +684,9 @@
             <port id="pFundoJ1--" component="fundoJ1--" />
 
             <media id="luaNivel3--"   refer="game_script"      instance="new" />
+
+            <media id="luaSensor3" src="sensor/sensorScript.lua" descriptor="dSensor" />
+
             <media id="config--"      refer="settings"       instance="instSame" />
             <switch id="fundoJ1--">
                 <bindRule rule="langPt" constituent="f11--" />
@@ -849,6 +858,8 @@
                 <bind component="suiteNv3Esq--" role="start" />
                 <bind component="suiteNv3Dir--" role="start" />
                 <bind component="suiteNv3Inf--" role="start" />
+
+                <bind component="luaSensor3" role="start" />
             </link>
 
             <link xconnector="conectores#onEndStopNItems" >
@@ -972,6 +983,8 @@
                 <bind component="suiteNv3Cen--" role="abort" />
                 <bind component="fundoJ1--" role="abort" />
                 <bind component="fundoJ2--" role="abort" />
+
+                <bind component="luaSensor3" role="abort" />
             </link>
 
             <link xconnector="conectores#onEndAbort">
