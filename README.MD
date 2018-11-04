@@ -3,19 +3,19 @@ Um jogo cognitivo simples desenvolvido para o middleware Ginga ITV.
 
 ## Procedimentos
 
-Os procedimentos a seguir descrevem os passos necess·rios para execuÁ„o do "MemoGinga" por meio de m·quina virtual.
+Os procedimentos a seguir descrevem os passos necess√°rios para execu√ß√£o do "MemoGinga" por meio de m√°quina virtual.
 
-### PrÈ-requisitos
+### Pr√©-requisitos
 
-O programa foi testado usando o programa de virtualizaÁ„o de sistemas VMWare, e com a imagem Ginga-NCL Virtual STB 0.12.4 do middleware Ginga-NCL. Desde que VMWare e a imagem mencionada sejam utilizados, n„o haver· diferenÁas na execuÁ„o do jogo em sistemas Unix, Windows ou MacOS. As instruÁıes abaixo referem-se ‡ execuÁ„o no sistema Ubuntu 16.04, mas os passos de conex„o com a m·quina virtual Ginga, envio por SSH da aplicaÁ„o para a m·quina e por fim a execuÁ„o do jogo s„o similares entre os sistemas, variando as aplicaÁıes utilizadas.
+O programa foi testado usando o programa de virtualiza√ß√£o de sistemas VMWare, e com a imagem Ginga-NCL Virtual STB 0.12.4 do middleware Ginga-NCL. Desde que VMWare e a imagem mencionada sejam utilizados, n√£o haver√° diferen√ßas na execu√ß√£o do jogo em sistemas Unix, Windows ou MacOS. As instru√ß√µes abaixo referem-se √† execu√ß√£o no sistema Ubuntu 16.04, mas os passos de conex√£o com a m√°quina virtual Ginga, envio por SSH da aplica√ß√£o para a m√°quina e por fim a execu√ß√£o do jogo s√£o similares entre os sistemas, variando as aplica√ß√µes utilizadas.
 
-Os programas utilizados s„o:
+Os programas utilizados s√£o:
 
-* [Ginga-NCL Virtual STB 0.12.4](http://www.gingancl.org.br/sites/gingancl.org.br/files/ferramentas/ubuntu-server10.10-ginga-v.0.12.4-i386.zip) - Imagem Ubuntu 10.10 Server do middleware Ginga-NCL, utilizada na implementaÁ„o e testes do jogo. Inclui o Ginga-NCL C++ v. 0.12.4.
-* [VMWare Workstation Player](https://www.vmware.com/br/products/workstation-player/workstation-player-evaluation.html) - Programa de virtualizaÁ„o de sistemas. A vers„o Workstation 12 Player foi a utilizada. InstruÁıes (em PortuguÍs) para o processo longo de instalaÁ„o da vers„o 12 podem ser encontradas [aqui](https://www.blogopcaolinux.com.br/2016/12/Instalando-o-VMware-Workstation-Player-no-Ubuntu.html).
-* [FileZilla >= 3.15.0.2](https://filezilla-project.org/download.php) - Programa usado para fazer envio/upload dos arquivos do jogo na m·quina virtual.
+* [Ginga-NCL Virtual STB 0.12.4](http://www.gingancl.org.br/sites/gingancl.org.br/files/ferramentas/ubuntu-server10.10-ginga-v.0.12.4-i386.zip) - Imagem Ubuntu 10.10 Server do middleware Ginga-NCL, utilizada na implementa√ß√£o e testes do jogo. Inclui o Ginga-NCL C++ v. 0.12.4.
+* [VMWare Workstation Player](https://www.vmware.com/br/products/workstation-player/workstation-player-evaluation.html) - Programa de virtualiza√ß√£o de sistemas. A vers√£o Workstation 12 Player foi a utilizada. Instru√ß√µes (em Portugu√™s) para o processo longo de instala√ß√£o da vers√£o 12 podem ser encontradas [aqui](https://www.blogopcaolinux.com.br/2016/12/Instalando-o-VMware-Workstation-Player-no-Ubuntu.html).
+* [FileZilla >= 3.15.0.2](https://filezilla-project.org/download.php) - Programa usado para fazer envio/upload dos arquivos do jogo na m√°quina virtual.
 
-Ainda, o software de conex„o SSH openssh-server foi utilizado para conex„o com a m·quiva virtual Ginga-NCL e execuÁ„o do jogo. Sua instalaÁ„o pode ser feita por meio do comando:
+Ainda, o software de conex√£o SSH openssh-server foi utilizado para conex√£o com a m√°quiva virtual Ginga-NCL e execu√ß√£o do jogo. Sua instala√ß√£o pode ser feita por meio do comando:
 
 ```
 sudo apt-get install openssh-server
@@ -23,22 +23,22 @@ sudo apt-get install openssh-server
 
 ### Executando
 
-1. Considerando que os programas da seÁ„o anterior j· est„o instalados, deve-se abrir o VMWare Workstation 12 Player e abrir o arquivo 'ubuntu-server10.10-ginga-i386.vmx' que se encontra no arquivo compactado da imagem do Ginga-NCL. Ao iniciar a m·quina virtual, ser„o mostrados na tela nome de usu·rio e senha para conex„o ‡ m·quina virtual via SSH.
+1. Considerando que os programas da se√ß√£o anterior j√° est√£o instalados, deve-se abrir o VMWare Workstation 12 Player e abrir o arquivo 'ubuntu-server10.10-ginga-i386.vmx' que se encontra no arquivo compactado da imagem do Ginga-NCL. Ao iniciar a m√°quina virtual, ser√£o mostrados na tela nome de usu√°rio e senha para conex√£o √† m√°quina virtual via SSH.
 
-2. Utilizando o FileZilla, deve-se abrir uma conex„o com a m·quina Ginga-NCL. Para isso, utiliza-se o username e senha mostrados na tela da m·quina virtual no passo anterior.
+2. Utilizando o FileZilla, deve-se abrir uma conex√£o com a m√°quina Ginga-NCL. Para isso, utiliza-se o username e senha mostrados na tela da m√°quina virtual no passo anterior.
 
-3. Com a conex„o aberta no FileZilla, deve-se fazer upload dos arquivos do jogo. Seleciona-se a pasta desejada e o diretÛrio da m·quina virtual para onde deseja-se envi·-la.
+3. Com a conex√£o aberta no FileZilla, deve-se fazer upload dos arquivos do jogo. Seleciona-se a pasta desejada e o diret√≥rio da m√°quina virtual para onde deseja-se envi√°-la.
 
-4. ApÛs ter feito upload dos arquivos, deve-se criar uma conex„o SSH para executar o jogo. Para tal, no terminal do Ubuntu digita-se:
+4. Ap√≥s ter feito upload dos arquivos, deve-se criar uma conex√£o SSH para executar o jogo. Para tal, no terminal do Ubuntu digita-se:
 
 ```
 ssh username@ip
 
 ```
 
-Onde username e IP s„o exibidos na tela inicial da m·quina virtual vista no passo 1.
+Onde username e IP s√£o exibidos na tela inicial da m√°quina virtual vista no passo 1.
 
-5. Caso executado corretamente, a conex„o ser· iniciada mostrando:
+5. Caso executado corretamente, a conex√£o ser√° iniciada mostrando:
 
 ```
 Ginga-NCL Virtual STB 0.12.4
@@ -48,24 +48,24 @@ root@ip's password:
 
 ```
 
-Onde deve-se digitar a senha encontrada na tela da m·quina virtual no passo 1.
+Onde deve-se digitar a senha encontrada na tela da m√°quina virtual no passo 1.
 
-6. Por fim, a execuÁ„o da aplicaÁ„o ser· feita mediante comando an·logo ao abaixo. Suponha que a pasta do jogo tenha sido enviada ao diretÛrio '/misc/ncl30/' da m·quina virtual:
+6. Por fim, a execu√ß√£o da aplica√ß√£o ser√° feita mediante comando an√°logo ao abaixo. Suponha que a pasta do jogo tenha sido enviada ao diret√≥rio '/misc/ncl30/' da m√°quina virtual:
 
 ```
 /misc/launcher.sh /misc/ncl30/MemoGinga-rev0.4/main.ncl 
 
 ```
 
-A aplicaÁ„o ser· iniciada dentro da m·quina virtual. Para finalizar sua execuÁ„o a qualquer momento, pode-se digitar Fn+F10 no teclado.
+A aplica√ß√£o ser√° iniciada dentro da m√°quina virtual. Para finalizar sua execu√ß√£o a qualquer momento, pode-se digitar Fn+F10 no teclado.
 
 ## Autores
 
-* **Luiz Felipe de Melo** - *ImplementaÁ„o, design, documentaÁ„o.* - [lffloyd](https://github.com/lffloyd) - lfmatosmelo@midiacom.uff.br
-* **Mayara Helena dos Santos** - *ImplementaÁ„o, design.* - [mayaralena](https://github.com/mayaralena) - mayarahelenae@midiacom.uff.br
+* **Luiz Felipe de Melo** - *Implementa√ß√£o, design, documenta√ß√£o.* - [lffloyd](https://github.com/lffloyd) - lfmatosmelo@midiacom.uff.br
+* **Mayara Helena dos Santos** - *Implementa√ß√£o, design.* - [mayaralena](https://github.com/mayaralena) - mayarahelena@midiacom.uff.br
 
 Veja a lista de [contribuidores](https://github.com/lffloyd/MemoGinga/contributors) participantes no projeto.
 
-## LicenÁa
+## Licen√ßa
 
-Projeto licenciado sob a licenÁa MIT - leia [LICENSE.md](https://github.com/lffloyd/MemoGinga/blob/master/LICENSE) para maiores detalhes.
+Projeto licenciado sob a licen√ßa MIT - leia [LICENSE.md](https://github.com/lffloyd/MemoGinga/blob/master/LICENSE) para maiores detalhes.
