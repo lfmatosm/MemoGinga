@@ -33,8 +33,8 @@ end
 function sorteia_imgs(totalImgs, nivelJogo, vetorImagens)
 	if (vetorImagens[ATUAL] == -1) then math.randomseed(os.time()) end
 	local limiteInf = 1; local limiteSup = totalImgs
-	local margem = 2
-	if nivelJogo == 2 or nivelJogo == 3 then margem = 6 end 
+	local margem = 1
+	if nivelJogo == 2 or nivelJogo == 3 then margem = 4 end 
 	local pivo = math.random(limiteInf, limiteSup)
 	local min = 1
 	local max = 12
@@ -83,13 +83,13 @@ function mostra_acertos_e_tempo(tabelaTempo)
 	canvas:drawText(30, 0, msg_acertos)
 	canvas:attrFont("vera", 40)
 	canvas:attrColor("black")
-	local idioma = "pt"
+	local idioma = "DEFAULT"
 	--local idioma = settings.service.gameLanguage
 	--print("\nLUA - Idioma: "..settings.system.language.."\n")
-	local tempoTitulo = ""
-	if idioma == "pt" then tempoTitulo = "Tempo total:"
-	elseif idioma == "en" then tempoTitulo = "Total time:"
-	else tempoTitulo = "Tiempo total:" end
+	local tempoTitulo = "T:"
+	--if idioma == "pt" then tempoTitulo = "Tempo total:"
+	--elseif idioma == "en" then tempoTitulo = "Total time:"
+	--else tempoTitulo = "Tiempo total:" end
 	local msg_tempo = string.format("%s %02.f:%02.f", tempoTitulo, tabelaTempo.min, tabelaTempo.seg)
 	--canvas:drawText(width-200, height-230, msg_tempo)
 	canvas:drawText(width-350, height-100, msg_tempo)

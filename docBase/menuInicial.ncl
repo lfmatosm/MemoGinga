@@ -85,31 +85,6 @@
                 <media id="b4_2Mn" descriptor="dBotao4" src="../imgs/btns/en/bExitGame.png" />
                 <media id="b4_3Mn" descriptor="dBotao4" src="../imgs/btns/es/bExitGame.png" />
             </switch>
-            <switch id="audioMenuInicial">
-                <bindRule rule="langPt" constituent="a1_1Mn" />
-                <bindRule rule="langEn" constituent="a1_2Mn" />
-                <bindRule rule="langEs" constituent="a1_3Mn" />
-                <media id="a1_1Mn" descriptor="dAudio" src="../audio/audJMenuInicial.mp3"/>
-                <media id="a1_2Mn" descriptor="dAudio" src="../audio/audJMenuInicial.mp3"/>
-                <media id="a1_3Mn" descriptor="dAudio" src="../audio/audJMenuInicial.mp3"/>
-            </switch>
-            <switch id="audioJogoTelaInicial">
-                <bindRule rule="langPt" constituent="a2_1Mn" />
-                <bindRule rule="langEn" constituent="a2_2Mn" />
-                <bindRule rule="langEs" constituent="a2_3Mn" />
-                <media id="a2_1Mn" descriptor="dAudio" src="../audio/audJTelaInicialJogo.mp3"/>
-                <media id="a2_2Mn" descriptor="dAudio" src="../audio/audJTelaInicialJogo.mp3"/>
-                <media id="a2_3Mn" descriptor="dAudio" src="../audio/audJTelaInicialJogo.mp3"/>
-            </switch>
-
-            <link xconnector="conectores#onBeginStartNItems">
-                <bind component="fundoMenu" role="onBegin" />
-                <bind component="btnIniciarJogo" role="start" />
-                <bind component="btnSelecNivel" role="start" />
-                <bind component="btnSelecLing" role="start" />
-                <bind component="btnSairJogo" role="start" />
-                <bind component="audioMenuInicial" role="start" />
-            </link>
 
             <link xconnector="conectores#onSelectionStopNItems">
                 <bind component="btnIniciarJogo" role="onSelection" />

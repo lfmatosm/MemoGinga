@@ -5,7 +5,6 @@
             <importNCL alias="docMenu" documentURI="docBase/menuInicial.ncl" />
             <importNCL alias="docSelecNivel" documentURI="docBase/selecaoDeNivel.ncl" />
             <importNCL alias="docSelecIdioma" documentURI="docBase/languageMenu.ncl" />
-            
             <importNCL alias="docSensor" documentURI="sensor/sensor.ncl" />
         </importedDocumentBase>
 
@@ -14,7 +13,6 @@
             <rule id="langPt" var="service.gameLanguage" comparator="eq" value="pt" />
             <rule id="langEn" var="service.gameLanguage" comparator="eq" value="en" />
             <rule id="langEs" var="service.gameLanguage" comparator="eq" value="es" />
-
             <!--Níveis-->
             <rule id="rNivel1" var="nivel" comparator="eq" value="1" />
             <rule id="rNivel2" var="nivel" comparator="eq" value="2" />
@@ -83,12 +81,9 @@
             <region id="rgForma2" top="30%" left="10%" width="25%" height="25%" zIndex="1" />
             <region id="rgForma3" top="30%" right="10%" width="25%" height="25%" zIndex="1" />
             <region id="rgLua" top="45%" left="38%" width="50%" height="50%" zIndex="1" />
-            
             <region id="rgAudio" top="0%" left="0%" width="0%" height="0%" zIndex="1" />
             <region id="rgBotaoSairPartida" top="82%" left="75%" width="20%" height="10%" zIndex="1" />
-
             <region id="rgTestes" left="35%" width="30%" height="100%" zIndex="1" />
-
             <!--Suítes.-->
             <!--Lv. 1 e 2-->
             <region id="rgSuite1" top="30%" left="25%" width="50%" height="50%" zIndex="1" />
@@ -98,7 +93,6 @@
             <region id="rgSuite4" top="20%" left="20%" width="25%" height="25%" zIndex="1" />
             <region id="rgSuite5" top="20%" right="20%" width="25%" height="25%" zIndex="1" />
             <region id="rgSuite6" top="55%" left="37%" width="25%" height="25%" zIndex="1" />
-            
             <region id="rgSensor" top="60%" width="20%" left="75%" zIndex="2">
     			<region id="rgHeart" width="15%" height="40%" />
     		</region>
@@ -113,12 +107,9 @@
             <descriptor id="dBotao2" region="rgBotao2" focusIndex="2" moveUp="1" moveDown="3" />
             <descriptor id="dBotaoSairPartida" region="rgBotaoSairPartida" focusIndex="3" moveUp="2" moveDown="1" />
             <descriptor id="dAudio" region="rgAudio" />
-
             <descriptor id="dTestes" region="rgTestes" explicitDur="2s" />
-            
             <descriptor id="dHeart" region="rgHeart" />
             <descriptor id="dSensor" region="rgSensor" />
-
             <!--Descs..-->
             <descriptor id="dS1" region="rgSuite1" />
             <descriptor id="dS2" region="rgSuite2" />
@@ -136,15 +127,12 @@
     <body id="ctx_principal">
         <media id="settings" type="application/x-ginga-settings">
             <property name="service.currentFocus" value="1" />
-
-            <property name="service.gameLanguage" value="en" />
-
+            <property name="service.gameLanguage" value="pt" />
             <property name="nivel" value="1" />
             <property name="figSorteada1" value="1" />
             <property name="figSorteada2" value="1" />
             <property name="figSorteada3" value="1" />
             <property name="figSorteada4" value="1" />
-            <!--<property name="lang" value="en" />-->
         </media>
 
         <media id="game_script" src="lua/game_script.lua" descriptor="dLua">
@@ -163,9 +151,9 @@
 
         <port id="pMenu" component="menu" />
 
-        <context id="menu" refer="docMenu#ctx_menuInicial" instance="instSame" />
-        <context id="selecaoNivel" refer="docSelecNivel#ctx_selecaoNivel" instance="instSame" />
-        <context id="selecaoIdioma" refer="docSelecIdioma#ctx_selecaoIdioma" instance="instSame" />
+        <context id="menu" refer="docMenu#ctx_menuInicial" />
+        <context id="selecaoNivel" refer="docSelecNivel#ctx_selecaoNivel" />
+        <context id="selecaoIdioma" refer="docSelecIdioma#ctx_selecaoIdioma" />
 
         <context id="nivel1">
             <port id="pLuaNivel1" component="luaNivel1" />
@@ -209,7 +197,6 @@
             <media id="luaNivel1"   refer="game_script"          instance="new" />
 
             <!--<media id="luaSensor1"  refer="docSensor#sensorCtx"  instance="new" />-->
-            <media id="luaSensor1" src="sensor/sensorScript.lua" descriptor="dSensor" />
             
             <switch id="suite1">
                 <bindRule rule="suite1_img_1" constituent="s1_img1" />
@@ -291,8 +278,7 @@
             <link xconnector="conectores#onBeginStartNItems">
                 <bind component="fundoJ1" role="onBegin" />
                 <bind component="suite1" role="start" />
-                
-                <bind component="luaSensor1" role="start" />
+                <!--<bind component="luaSensor1" role="start" />-->
             </link>
 
             <link xconnector="conectores#onEndStopNItems" >
@@ -396,8 +382,7 @@
                 <bind component="suite2" role="abort" />
                 <bind component="fundoJ1" role="abort" />
                 <bind component="fundoJ2" role="abort" />
-
-                <bind component="luaSensor1" role="abort" />
+                <!--<bind component="luaSensor1" role="abort" />-->
             </link>
 
             <link xconnector="conectores#onEndAbort">
@@ -527,7 +512,7 @@
             </switch>
             <media id="luaNivel2-"   refer="game_script"          instance="new" />
 
-            <media id="luaSensor2" src="sensor/sensorScript.lua" descriptor="dSensor" />
+            <!--<media id="luaSensor2" src="sensor/sensorScript.lua" descriptor="dSensor" />-->
 
             <link xconnector="conectores#onBeginSet">
                 <bind component="luaNivel2-" role="onBegin" />
@@ -555,8 +540,7 @@
                 <bind component="fundoJ1-" role="onBegin" />
                 <bind component="suiteNv2Esq-" role="start" />
                 <bind component="suiteNv2Dir-" role="start" />
-
-                <bind component="luaSensor2" role="start" />
+                <!--<bind component="luaSensor2" role="start" />-->
             </link>
 
             <link xconnector="conectores#onEndStopNItems" >
@@ -670,8 +654,7 @@
                 <bind component="suiteNv2Cen-" role="abort" />
                 <bind component="fundoJ1-" role="abort" />
                 <bind component="fundoJ2-" role="abort" />
-
-                <bind component="luaSensor2" role="abort" />
+                <!--<bind component="luaSensor2" role="abort" />-->
             </link>
 
             <link xconnector="conectores#onEndAbort">
@@ -684,8 +667,7 @@
             <port id="pFundoJ1--" component="fundoJ1--" />
 
             <media id="luaNivel3--"   refer="game_script"      instance="new" />
-
-            <media id="luaSensor3" src="sensor/sensorScript.lua" descriptor="dSensor" />
+            <!--<media id="luaSensor3" src="sensor/sensorScript.lua" descriptor="dSensor" />-->
 
             <media id="config--"      refer="settings"       instance="instSame" />
             <switch id="fundoJ1--">
@@ -858,8 +840,7 @@
                 <bind component="suiteNv3Esq--" role="start" />
                 <bind component="suiteNv3Dir--" role="start" />
                 <bind component="suiteNv3Inf--" role="start" />
-
-                <bind component="luaSensor3" role="start" />
+                <!--<bind component="luaSensor3" role="start" />-->
             </link>
 
             <link xconnector="conectores#onEndStopNItems" >
@@ -983,8 +964,7 @@
                 <bind component="suiteNv3Cen--" role="abort" />
                 <bind component="fundoJ1--" role="abort" />
                 <bind component="fundoJ2--" role="abort" />
-
-                <bind component="luaSensor3" role="abort" />
+                <!--<bind component="luaSensor3" role="abort" />-->
             </link>
 
             <link xconnector="conectores#onEndAbort">
@@ -1141,22 +1121,22 @@
         <link xconnector="conectores#onBeginAbort">
             <bind component="menu" role="onBegin" />
             <bind component="selecaoNivel" role="abort" />
-            <!--<bind component="selecaoIdioma" role="abort" />-->
+            <bind component="selecaoIdioma" role="abort" />
         </link>
 
         <link xconnector="conectores#onAbortStart">
             <bind component="nivel1" role="onAbort" />
-            <bind component="menu" role="start" />
+            <bind component="ctx_principal" role="start" />
         </link>
 
         <link xconnector="conectores#onEndStart">
-            <bind component="nivel2" role="onEnd" />
-            <bind component="menu" role="start" />
+            <bind component="nivel2" role="onAbort" />
+            <bind component="ctx_principal" role="start" />
         </link>
 
         <link xconnector="conectores#onEndStart">
-            <bind component="nivel3" role="onEnd" />
-            <bind component="menu" role="start" />
+            <bind component="nivel3" role="onAbort" />
+            <bind component="ctx_principal" role="start" />
         </link>
     </body>
 </ncl>
