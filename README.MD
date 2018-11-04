@@ -61,8 +61,8 @@ A aplicação será iniciada dentro da máquina virtual. Para finalizar sua execução
 
 ## Autores
 
-* **Luiz Felipe de Melo** - *Implementação, design, documentação.* - [lffloyd](https://github.com/lffloyd)
-* **Mayara Helena dos Santos** - *Implementação, design.* - [mayaralena](https://github.com/mayaralena)
+* **Luiz Felipe de Melo** - *Implementação, design, documentação.* - [lffloyd](https://github.com/lffloyd) - lfmatosmelo@midiacom.uff.br
+* **Mayara Helena dos Santos** - *Implementação, design.* - [mayaralena](https://github.com/mayaralena) - mayarahelenae@midiacom.uff.br
 
 Veja a lista de [contribuidores](https://github.com/lffloyd/MemoGinga/contributors) participantes no projeto.
 
