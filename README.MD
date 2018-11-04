@@ -1,71 +1,71 @@
-======================================
-|                                    |
-|                                    |
-|  MemoGinga pre-alpha v. 0.14       |
-|                                    |
-|                                    |
-|	Laboratório MídiaCom         |
-|   Universidade Federal Fluminense  |
-|                                    |
-|    mayarahelena@midiacom.uff.br    |
-|     lfmatosmelo@midiacom.uff.br    |
-|                                    |
-|                                    |
-======================================
+# MemoGinga
+Um jogo cognitivo simples desenvolvido para o middleware Ginga ITV.
 
---v. 0.14 (atual):
+## Procedimentos
 
-*Bugs conhecidos: nenhum.
-*Implementações feitas sobre a versão anterior (v. 0.13), bugs resolvidos:
--Níveis 2 e 3 adicionados.
--Pontuação e tempo da partida corrigidos.
+Os procedimentos a seguir descrevem os passos necessários para execução do "MemoGinga" por meio de máquina virtual.
 
-________________________________________________________________________________________________________________________________________________
---v. 0.13:
+### Pré-requisitos
 
-*Bugs conhecidos:
--Cálculo de pontuação e tempo de jogo ao fim de uma partida.
+O programa foi testado usando o programa de virtualização de sistemas VMWare, e com a imagem Ginga-NCL Virtual STB 0.12.4 do middleware Ginga-NCL. Desde que VMWare e a imagem mencionada sejam utilizados, não haverá diferenças na execução do jogo em sistemas Unix, Windows ou MacOS. As instruções abaixo referem-se à execução no sistema Ubuntu 16.04, mas os passos de conexão com a máquina virtual Ginga, envio por SSH da aplicação para a máquina e por fim a execução do jogo são similares entre os sistemas, variando as aplicações utilizadas.
 
-*Implementações feitas sobre a versão anterior (v. 0.12):
--Organização do jogo em contextos internos ao documento 'main.ncl'.
+Os programas utilizados são:
 
-________________________________________________________________________________________________________________________________________________
---v. 0.12 (atual):
+* [Ginga-NCL Virtual STB 0.12.4](http://www.gingancl.org.br/sites/gingancl.org.br/files/ferramentas/ubuntu-server10.10-ginga-v.0.12.4-i386.zip) - Imagem Ubuntu 10.10 Server do middleware Ginga-NCL, utilizada na implementação e testes do jogo. Inclui o Ginga-NCL C++ v. 0.12.4.
+* [VMWare Workstation Player](https://www.vmware.com/br/products/workstation-player/workstation-player-evaluation.html) - Programa de virtualização de sistemas. A versão Workstation 12 Player foi a utilizada. Instruções (em Português) para o processo longo de instalação da versão 12 podem ser encontradas [aqui](https://www.blogopcaolinux.com.br/2016/12/Instalando-o-VMware-Workstation-Player-no-Ubuntu.html).
+* [FileZilla >= 3.15.0.2](https://filezilla-project.org/download.php) - Programa usado para fazer envio/upload dos arquivos do jogo na máquina virtual.
 
-*A fazer:
--Formas geométricas/botões menos feias(os).
--Organizar o posicionamento das formas na tela/botões.
--Organizar elos e mídias dentro de contextos específicos.
--Níveis de jogo (com alterações de dificuldade - mudanças de forma, cor, etc.).
--Âncora de áudio descrevendo como o jogo funciona a seu início.
+Ainda, o software de conexão SSH openssh-server foi utilizado para conexão com a máquiva virtual Ginga-NCL e execução do jogo. Sua instalação pode ser feita por meio do comando:
 
-*Bugs resolvidos da versão anterior (v. 0.11):
--Botão "Sair" no meio do jogo (encerra a partida e retorna ao Menu Inicial) corrigido.
+```
+sudo apt-get install openssh-server
+```
 
-________________________________________________________________________________________________________________________________________________
---v. 0.11:
+### Executando
 
-*Bugs conhecidos:
--Eventualmente uma imagem/forma não é exibida: este erro foi observado em apenas uma única ocasião e não se sabe sua origem.
+1. Considerando que os programas da seção anterior já estão instalados, deve-se abrir o VMWare Workstation Player 12 e abrir o arquivo 'ubuntu-server10.10-ginga-i386.vmx' que se encontra no arquivo compactado da imagem do Ginga-NCL. Ao iniciar a máquina virtual, serão mostrados na tela nome de usuário e senha para conexão à máquina virtual via SSH.
 
-*Bugs resolvidos da versão anterior (v. 0.1):
--Problema de coloração das imagens resolvido.
--Exibição em momentos indesejados do suíte de imagens resolvida.
--Botão "Sair" corrigido; funciona corretamente agora.
+2. Utilizando o FileZilla, deve-se abrir uma conexão com a máquina Ginga-NCL. Para isso, utiliza-se o username e senha meostrados na tela da máquina virtual.
 
-________________________________________________________________________________________________________________________________________________
---v. 0.1:
+3. Com a conexão aberta no FileZilla, deve-se fazer upload dos arquivos do jogo. Seleciona-se a pasta desejada e o diretório da máquina virtual para onde será enviada.
 
-*Bugs conhecidos:
--Transição às vezes não ocorre - não ocorre alteração da imagem, mesmo ocorrendo computação de novo elemento mostrado (contagem de imagens exibidas).
--Imagens com cores muito escuras - coloração não natural.
--Suíte de imagens é exibido no menu inicial após o reinício da aplicação em algumas vezes.
--Botão "Sair" não funciona; não termina a execução da aplicação.
+4. Após ter feito upload dos arquivos, deve criar uma conexão SSH para executar o jogo. Para tal, no terminal do Ubuntu digita-se:
 
-*Bugs resolvidos da versão anterior (v. 0.05):
--Transições que ocorriam para uma imagem "invisível" e depois iam para imagens "visíveis".
--Estouro do limite definido de imagens exibidas (o script ignorava o limite de 12 imagens).
--Erro de postagem do 'valor_sorteado' no nó Lua. Este erro provavelmente estava associado ao uso simultâneo da variável/propriedade 'valor_sorteado'
- para indicar a tecla digitada pelo usuário durante o jogo e definir a imagem a ser exibida pelo suíte de imagens.
+```
+ssh username@ip
 
-________________________________________________________________________________________________________________________________________________
+```
+
+Onde username e IP são exibidos na tela incial da máquina virtual vista no passo 1.
+
+5. Caso executado corretamente, a conexão será inciada exibindo:
+
+```
+Ginga-NCL Virtual STB 0.12.4
+Ubuntu 10.10 Server
+
+root@ip's password: 
+
+```
+
+Onde deve-se digitar a senha encontrada na tela da máquina virtual no passo 1.
+
+6. Por fim, a execução da aplicação será feita mediante comando análogo ao abaixo. Suponha que a pasta do jogo tenha sido enviada ao diretório /misc/ncl30/ da máquina virtual:
+
+```
+/misc/launcher.sh /misc/ncl30/MemoGinga-rev0.4/main.ncl 
+
+```
+
+A aplicação será iniciada dentro da máquina virtual. Para finalizar sua execução a qualquer momento, pode-se digitar Fn+F10 no teclado.
+
+## Autores
+
+* **Luiz Felipe de Melo** - *Implementação, design, documentação.* - [lffloyd](https://github.com/lffloyd)
+* **Mayara Helena dos Santos** - *Implementação, design.* - [mayaralena](https://github.com/mayaralena)
+
+Veja a lista de [contribuidores](https://github.com/lffloyd/MemoGinga/contributors) participantes no projeto.
+
+## Licença
+
+Projeto licenciado sob a licença MIT - leia [LICENSE.md](https://github.com/lffloyd/MemoGinga/blob/master/LICENSE) para maiores detalhes.
