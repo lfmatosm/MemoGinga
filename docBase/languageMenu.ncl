@@ -67,25 +67,6 @@
                 <bind component="bEs" role="onSelection" />
                 <bind component="ctx_selecaoIdioma" role="stop" />
             </link>
-
-            <link xconnector="conectores#onKeySelectionStopNItems">
-                <bind component="bPt" role="onSelection">
-                    <bindParam name="key" value="GREEN" />
-                </bind>
-                <bind component="ctx_selecaoIdioma" role="stop" />
-            </link>
-            <link xconnector="conectores#onKeySelectionStopNItems">
-                <bind component="bEn" role="onSelection">
-                    <bindParam name="key" value="BLUE" />
-                </bind>
-                <bind component="ctx_selecaoIdioma" role="stop" />
-            </link>
-            <link xconnector="conectores#onKeySelectionStopNItems">
-                <bind component="bEs" role="onSelection">
-                    <bindParam name="key" value="RED" />
-                </bind>
-                <bind component="ctx_selecaoIdioma" role="stop" />
-            </link>
         </context>
     </body>
 </ncl>
