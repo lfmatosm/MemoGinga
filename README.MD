@@ -33,7 +33,6 @@ sudo apt-get install openssh-server
 
 ```
 ssh username@ip
-
 ```
 
 Onde username e IP são exibidos na tela inicial da máquina virtual vista no passo 1.
@@ -45,7 +44,6 @@ Ginga-NCL Virtual STB 0.12.4
 Ubuntu 10.10 Server
 
 root@ip's password: 
-
 ```
 
 Onde deve-se digitar a senha encontrada na tela da máquina virtual no passo 1.
@@ -54,7 +52,6 @@ Onde deve-se digitar a senha encontrada na tela da máquina virtual no passo 1.
 
 ```
 /misc/launcher.sh /misc/ncl30/MemoGinga-rev0.4/main.ncl 
-
 ```
 
 A aplicação será iniciada dentro da máquina virtual. Para finalizar sua execução a qualquer momento, pode-se digitar Fn+F10 no teclado.
