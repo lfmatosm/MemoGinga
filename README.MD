@@ -7,21 +7,28 @@ Os procedimentos a seguir descrevem os passos necessários para execução do "M
 
 ### Pré-requisitos
 
-O programa foi testado usando o programa de virtualização de sistemas VMWare, e com a imagem Ginga-NCL Virtual STB 0.12.4 do middleware Ginga-NCL. Desde que VMWare e a imagem mencionada sejam utilizados, não haverá diferenças na execução do jogo em sistemas Unix, Windows ou MacOS. As instruções abaixo referem-se à execução no sistema Ubuntu 16.04, mas os passos de conexão com a máquina virtual Ginga, envio por SSH da aplicação para a máquina e por fim a execução do jogo são similares entre os sistemas, variando as aplicações utilizadas.
+O programa foi testado usando o programa de virtualização de sistemas VMWare, e com a imagem Ginga-NCL Virtual STB 0.12.4 do middleware Ginga-NCL. Desde que VMWare e a imagem mencionada sejam utilizados, não haverá diferenças na execução do jogo em sistemas Unix, Windows ou MacOS. Como pré-requisito, é necessário possuir uma imagem da máquina Ginga-NCL para ser usada no VMWare e possibilitar a execução do jogo.
 
-Os programas utilizados são:
+* [Ginga-NCL Virtual STB 0.12.4](http://www.gingancl.org.br/sites/gingancl.org.br/files/ferramentas/ubuntu-server10.10-ginga-v.0.12.4-i386.zip) - Imagem Ubuntu 10.10 Server do middleware Ginga-NCL, utilizada na implementação e testes do jogo. Inclui o Ginga-NCL C++ v. 0.12.4. Pode ser usada em qualquer sistema operacional com qualquer versão do VMWare.
 
-* [Ginga-NCL Virtual STB 0.12.4](http://www.gingancl.org.br/sites/gingancl.org.br/files/ferramentas/ubuntu-server10.10-ginga-v.0.12.4-i386.zip) - Imagem Ubuntu 10.10 Server do middleware Ginga-NCL, utilizada na implementação e testes do jogo. Inclui o Ginga-NCL C++ v. 0.12.4.
-* [VMWare Workstation Player](https://www.vmware.com/br/products/workstation-player/workstation-player-evaluation.html) - Programa de virtualização de sistemas. A versão Workstation 12 Player foi a utilizada. Instruções (em Português) para o processo longo de instalação da versão 12 podem ser encontradas [aqui](https://www.blogopcaolinux.com.br/2016/12/Instalando-o-VMware-Workstation-Player-no-Ubuntu.html).
+### Windows
+
+Para Windows, é necessário instalar os programas:
+
+* [VMWare Workstation 12](https://drive.google.com/file/d/1396C-48CXxq8KcNqkhOKdA_g4Ra-yeXB/view?usp=sharing) - Programa de virtualização de sistemas.
+* [WinSCP](https://winscp.net/eng/index.php) - Cliente SSH/FTP para evnio dos arquivos à máquina Ginga baixada acima e para execução do jogo.
+
+### Ubuntu
+
+Já para Ubutnu, são necessários os programas:
+
+* [VMWare Workstation Player](https://my.vmware.com/web/vmware/info?slug=desktop_end_user_computing/vmware_workstation_pro/12_0) - Programa de virtualização de sistemas. A versão Workstation 12 Player foi a utilizada. Instruções (em Português) para o processo longo de instalação da versão 12 no Ubuntu podem ser encontradas [aqui](https://www.blogopcaolinux.com.br/2016/12/Instalando-o-VMware-Workstation-Player-no-Ubuntu.html).
 * [FileZilla >= 3.15.0.2](https://filezilla-project.org/download.php) - Programa usado para fazer envio/upload dos arquivos do jogo na máquina virtual.
+* [OpenSSH Server](https://www.openssh.com) - Utilizado para conexão com a máquina virtual Ginga-NCL. Pode ser instalado pelo bash utilizando ```sudo apt-get install openssh-server```
 
-Ainda, o software de conexão SSH openssh-server foi utilizado para conexão com a máquiva virtual Ginga-NCL e execução do jogo. Sua instalação pode ser feita por meio do comando:
+#### Executando (no Ubuntu)
 
-```
-sudo apt-get install openssh-server
-```
-
-### Executando
+As instruções detalhadas abaixo referem-se a execução do programa em Ubuntu. Os passos de conexão com a máquina virtual Ginga, envio por SSH da aplicação para a máquina e por fim a execução do jogo são similares entre os sistemas, variando as aplicações utilizadas.
 
 1. Considerando que os programas da seção anterior já estão instalados, deve-se abrir o VMWare Workstation 12 Player e abrir o arquivo 'ubuntu-server10.10-ginga-i386.vmx' que se encontra no arquivo compactado da imagem do Ginga-NCL. Ao iniciar a máquina virtual, serão mostrados na tela nome de usuário e senha para conexão à máquina virtual via SSH.
 
